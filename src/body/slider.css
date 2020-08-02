@@ -1,3 +1,8 @@
 .slider-item{
     height: 800px;
 }
+
+.card-item{
+    height: 180px;
+    width: 180px;
+}
