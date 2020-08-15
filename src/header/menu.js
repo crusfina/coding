@@ -5,7 +5,7 @@ import logo from '../img/logo.png';
 function Menu() {
   return (
     <div>
-      <Navbar bg="light" expand="lg">
+      <Navbar bg="light" expand="lg" fixed="top">
         <img src={logo} alt="error" className="logo"/>
         {/* <Navbar.Brand href="#home">TRANG CHỦ</Navbar.Brand> */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

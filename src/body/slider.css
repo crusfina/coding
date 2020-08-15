@@ -2,7 +2,22 @@
     height: 800px;
 }
 
+.carousel.slide{
+    margin-top: 95px;
+} 
+
 .card-item{
     height: 180px;
     width: 180px;
+}
+
+.card-deck{
+    margin-left: 100px !important;
+    margin-right: 100px !important;
+    margin-top: 50px !important;
+}
+
+.badge{
+    position: absolute;
+    right: 5px;
 }

@@ -1,0 +1,32 @@
+.breadcrumb-fix{
+    margin-top: 115px;
+}
+
+.card-container{
+    position: relative;
+    height: 500px;
+}
+
+.card-fix{
+    position: absolute !important;
+    height: 250px;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-outline-warning.btn-outline-mystyle:hover{
+    background-color: #fb3 !important;
+    color: aliceblue !important;
+}
+
+.body-fix{
+    text-align: center;
+    padding: 50px 500px ;
+    background-color: beige;
+}

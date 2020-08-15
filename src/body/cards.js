@@ -1,73 +1,46 @@
-import React from 'react';
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-import './slider.css'
-import { CardDeck } from 'react-bootstrap';
+import React from "react";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import "./slider.css";
+import { CardDeck, Badge } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-const Cards = (props) => {
+const CardWrapper = (props) => {
+    console.log(props.cardData);
+  let Render = props.cardData.map(creatCard);
+  function creatCard(item) {
+      let badge = null;
+    if (item.badgeCard === 'HOT') 
+    badge = <h3><Badge variant="danger">HOT</Badge></h3> ;
+    else if (item.badgeCard=== 'NEW') 
+    badge =  <h3><Badge variant="danger">NEW</Badge></h3> ;
+
     return (
-        <div>
-            <CardDeck>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={require("../img/donut/donut1.jpg")} />
-                <Card.Body>
-                    <Card.Title>Chocolate</Card.Title>
-                    <Card.Text>
-                        Some quick example text to build on the card title and make up the bulk of
-                        the card's content.
-                    </Card.Text>
-                </Card.Body>
-                {/* <ListGroup className="list-group-flush">
-                    <ListGroupItem>Cras justo odio</ListGroupItem>
-                    <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-                    <ListGroupItem>Vestibulum at eros</ListGroupItem>
-                </ListGroup> */}
-                <Card.Body>
-                    <Button variant="outline-warning" href="#">Mua Ngay</Button>{' '}
-                    <Button variant="outline-warning" href="#">Xem Chi Tiết</Button>{' '}
-                </Card.Body>
-            </Card>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={require("../img/donut/donut2.jpg")} />
-                <Card.Body>
-                    <Card.Title>Pink</Card.Title>
-                    <Card.Text>
-                        Some quick example text to build on the card title and make up the bulk of
-                        the card's content.
-                    </Card.Text>
-                </Card.Body>
-                {/* <ListGroup className="list-group-flush">
-                    <ListGroupItem>Cras justo odio</ListGroupItem>
-                    <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-                    <ListGroupItem>Vestibulum at eros</ListGroupItem>
-                </ListGroup> */}
-                <Card.Body>
-                    <Button variant="outline-warning" href="#">Mua Ngay</Button>{' '}
-                    <Button variant="outline-warning" href="#">Xem Chi Tiết</Button>{' '}
-                </Card.Body>
-            </Card>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={require("../img/donut/donut3.jpg")} />
-                <Card.Body>
-                    <Card.Title>Sugar</Card.Title>
-                    <Card.Text>
-                        Some quick example text to build on the card title and make up the bulk of
-                        the card's content.
-                    </Card.Text>
-                </Card.Body>
-                {/* <ListGroup className="list-group-flush">
-                    <ListGroupItem>Cras justo odio</ListGroupItem>
-                    <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-                    <ListGroupItem>Vestibulum at eros</ListGroupItem>
-                </ListGroup> */}
-                <Card.Body>
-                    <Button variant="outline-warning" href="#">Mua Ngay</Button>{' '}
-                    <Button variant="outline-warning" href="#">Xem Chi Tiết</Button>{' '}
-                </Card.Body>
-            </Card>
-            </CardDeck>
+      <Card style={{ width: "18rem" }}>
+        <div className="badge">
+            {badge}
         </div>
+        <Card.Img variant="top" src={item.imgCard} />
+        <Card.Body>
+    <Card.Title>{item.titleCard}</Card.Title>
+          <Card.Text>{item.textCard}</Card.Text>
+        </Card.Body>
+        <Card.Body>
+          <Button variant="outline-warning" href="#">
+            Mua Ngay
+          </Button>{" "}
+          <Link to={`/product/${item.id}`}><Button variant="outline-warning">
+            Xem Chi Tiết
+          </Button></Link>
+        </Card.Body>
+      </Card>
     );
+  }
+  return (
+    <div>
+      <CardDeck>{Render}</CardDeck>
+    </div>
+  );
 };
 
-export default Cards;
+export default CardWrapper;
